@@ -1,18 +1,15 @@
 <?php
 
 Route::get('/', function () {
-    return 'hola';
-});
+    return 'Home';
+ });
 
-Route::get('/usuario', function(){
-    return 'Usuarios';
-});
+Route::get('/usuario', 'UserControllers@index');
 
 // ruta con url amigable 
-Route::get('/usuario/{id}', function($id){
-    return "Mostrando detelle de usuario: {$id}";
-})->where ('id','[0-9]+');
+Route::get('/usuario/{id}', 'UserControllers@show')
+    ->where ('id','[0-9]+');
 
-Route::get('/usuario/nuevo', function(){
-    return 'Crear Nuevo Usuario';
-});
+Route::get('/usuario/nuevo', 'UserControllers@create');
+
+Route::get('/saludo/{name}/{nickname?}', 'welcomeUserController');

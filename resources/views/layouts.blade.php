@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Starter Template · Bootstrap</title>
+    <title>@yield('title')- hola</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/starter-template/">
 
@@ -70,7 +70,16 @@
 <main role="main" class="container">
 
 
-    @yield('content')
+           <div class="row mt-3">
+            <div class="col-8">
+                @yield('content')
+            </div>
+            <div class="col-4">
+                @section('sidebar')
+                  <h2>derecha</h2>
+                @show
+            </div>
+        </div>
 
 
 

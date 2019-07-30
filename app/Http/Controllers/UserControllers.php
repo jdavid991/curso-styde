@@ -13,7 +13,7 @@ class UserControllers extends Controller
        }else{
             $users=[
                 'juan', 'pedro', 'maria', 'victor'
-            ];
+                ];
     
         }
 

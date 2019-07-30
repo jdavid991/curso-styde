@@ -1,20 +1,19 @@
-@include('head');
+@extends('layouts')
 
-    <div class="row mt-3">
-        <div class="col-8">
-             <h1>{{ $title }}</h1>
-    
+   
+    @section('content')
+        <h1>{{ $title }}</h1> 
             <ul>
                 @forelse($users as $user) 
                     <li>{{ $user }}</li>
                     @empty
                         <p>No Hay Registros</p>
-                @endforelse
+                    @endforelse
             </ul>
-        </div>
-        <div class="col-4">
-            @include('sidebar')
-        </div>
-    </div>
+    @endsection
+    @section('sidebar')
+        <h2>Barra personalizada</h2>
+    @endsection
+
+    
    
-@include('footer');     

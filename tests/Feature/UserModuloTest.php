@@ -20,7 +20,7 @@ class UserModuloTest extends TestCase
 
     function testmensaje()
     {
-        $response = $this->get('/usuario?empty');
+        $response = $this->get('/usuario/ .$user->id');
         $response->assertStatus(200);
         $response->assertSee('No Hay Registros');
     }   

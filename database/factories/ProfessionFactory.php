@@ -9,5 +9,5 @@ $factory->define(\App\Profession::class, function (Faker $faker) {
     return [
         //
         'title' -> $faker->sentence
-    ];
+    ]; 
 });

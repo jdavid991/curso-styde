@@ -3,6 +3,11 @@
 @extends('layouts')
 
     @section('content')
-        <h1>usuario #{{ $id }}</h1>
-        Mostrando detelle de usuario: {{ $id }}
+    <br>
+    <br><br><br>
+        Nombre de usuario: {{ $user->name }}
+
+
+        <a href="{{ url('/usuario/') }}">Atras</a>
+
     @endsection

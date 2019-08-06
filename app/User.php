@@ -28,6 +28,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function profession(){
+        return $this->belongsto(Profession::class);
+    }
+
     /**
      * The attributes that should be cast to native types.
      *

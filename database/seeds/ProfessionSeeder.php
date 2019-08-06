@@ -1,5 +1,6 @@
 <?php
-
+Use App\User;
+use App\Models\Profession;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -13,12 +14,25 @@ class ProfessionSeeder extends Seeder
     public function run()
     {
         //
+        // DB::insert('INSERT INTO professions (title) VALUES (:title)', [
+        //    'title' => 'Desarrollador back-end2',
+        // ]);
 
-        DB::table('professions')->insert([
-            'title' => 'programador2',
-        ]);
-        DB::table('professions')->insert([
-            'title' => 'diseñador2',
-        ]);
+        //DB::insert('INSERT INTO professions (title) VALUES ("analista")');
+
+
+        // Profession::create([
+        //     'title' => 'a1a11111aaaaaaaaaaaa',
+        // ]);
+
+        factory(Profession::class)->times(17)->create();
+
+    
+    //     DB::table('professions')->insert([
+    //         'title' => 'programadw3',
+    //     ]);
+    //     DB::table('professions')->insert([
+    //         'title' => 'diseñsdador',
+    //     ]);
     }
 }

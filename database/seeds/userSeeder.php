@@ -28,12 +28,12 @@ class userSeeder extends Seeder
        
         // dd($professions);
 
-    //    User::create([
-    //         'name' => '111211111',
-    //         'email' => 'as9911112111111111111ssxcc',
-    //         'password' => bcrypt('laravel'),
-    //         'profession_id' => $professionId,
-    //     ]);
+       User::create([
+            'name' => '111211111',
+            'email' => 'as9911112111111111111ssxcc',
+            'password' => bcrypt('laravel'),
+            //'profession_id' => $professionId,
+        ]);
 
 
         factory(User::class)->create([

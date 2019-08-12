@@ -8,6 +8,6 @@
         Nombre de usuario: {{ $user->name }}
 
 
-        <a href="{{ url('/usuario/') }}">Atras</a>
+        <a href="{{ url('/usuarios/') }}">Atras</a>
 
     @endsection

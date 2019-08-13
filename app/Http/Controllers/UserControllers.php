@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class UserControllers extends Controller
 {
     public function index(){
+       
         $users = User::all();
         $title='Listado de Usuarios';
         return view('usuarios.index', compact('title','users'));    
@@ -31,13 +33,6 @@ class UserControllers extends Controller
         ],[
             'name.required'=> 'Campo Nombre Obligatorio'
         ]);
-
-        // if(empty($data['name'])){
-        //     return redirect('usuarios/nuevo')->withErrors([
-        //         'name' => 'Campo Obligatorio'
-        //     ]);
-        // }
-
         User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -48,19 +43,33 @@ class UserControllers extends Controller
     }
     public function edit(User $user){
         return view('usuarios.edit',['user'=> $user]);
+
     }
+   
+
     public function update(User $user){
 
         $data=request()->validate([
             'name'  => 'required',
-            'email' => '',
+            'email' => ['required','email',Rule::unique('users')->ignore($user->id)],
             'password' => '',
         ]);
 
-        $data['password']=bcrypt($data['password']);
+        if($data['password'] != null){
+            $data['password']=bcrypt($data['password']);
+        }else{
+            unset($data['password']);
+        }
+
 
         $user->update($data);
         
         return redirect("usuarios/{$user->id}");
+    }
+    function destroy(User $user){
+
+        $user->delete();
+
+        return redirect()->route('usuarios.index');
     }
 }

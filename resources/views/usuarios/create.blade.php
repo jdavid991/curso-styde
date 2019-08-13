@@ -1,44 +1,51 @@
-
-
 @extends('layouts')
 
     @section('content')
-    <br>
-    <br><br><br>
-       <div class="alert alert-danger">
-            <h6>mensajes de alerta abajo</h6>
+    <br><br>
+    <br><br>
+    <div class="card">
+            <h4 class="card-header">Crear Usuario</h4>
+            <div class="card-body">
 
-            @if ($errors->any())
-            {{-- <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error}}</li>                        
-                @endforeach
-            </ul>  --}}
-       </div>
-       @endif
- 
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <h6>mensajes de alerta abajo</h6>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error}}</li>                        
+                                @endforeach
+                            </ul> 
+                    </div>
+                @endif
+    
+     
+    
+            <form method="POST" action="{{ url('usuarios/crear') }}">
+                {!! csrf_field()!!}
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Nombre" value="{{old('name')}}">
+                </div> 
+                <div class="form-group">
+                    <label for="email">Correo</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Correo" value="{{old('email')}}">
+                </div> 
+                <div class="form-group">   
+                    <label for="password">Clave</label>
+                    <input  type="password" name="password" id="password" class="form-control" placeholder="clave">
+                </div> 
+                <div class="form-group"> 
+                    <button type="submit" class="btn btn-primary">Crear usuario</button>
+                    <a href="{{ route('usuarios.index') }}" class="btn btn-link">Regresar al listado de usuarios</a>
+                </div> 
+    
+           </form>
 
-           <form method="POST" action="{{ url('usuarios/crear') }}">
+            </div>
+    </div>
 
-            {!! csrf_field()!!}
-            <label for="name">Nombre</label>
-            <input type="text" name="name" id="name" placeholder="Nombre" value="{{old('name')}}">
-            <br>
-            <label for="email">Correo</label>
-           <input type="email" name="email" id="email" placeholder="Correo" value="{{old('email')}}">
-           @if ($errors->has('name'))
-                <p>{{$errors->first('name')}}</p>
-           @endif
-            <br>
-            <label for="password">Clave</label>
-            <input  type="password" name="password" id="password" placeholder="clave">
-            <br>
-       
-            <button type="submit">Crear usuario</button>
-
-       </form>
+            
 
 
-        <a href="{{ route('usuarios.index') }}">Regresar al listado de usuarios</a>
 
     @endsection

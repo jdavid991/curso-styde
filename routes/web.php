@@ -15,6 +15,7 @@ Route::get('/usuarios/{user}', 'UserControllers@show')
 
 Route::get('/usuarios/nuevo', 'UserControllers@create');
 
+//Route::get('/usuarios/{user}/editar','UserControllers@edit');
 Route::get('/usuarios/{user}/editar','UserControllers@edit');
 
 Route::post('/usuarios/crear', 'UserControllers@store');
@@ -23,4 +24,6 @@ Route::put('/usuarios/{user}', 'UserControllers@update');
 
 
 Route::get('/saludo/{name}/{nickname?}', 'welcomeUserController');
+
+Route::delete('/usuarios/{user}','UserControllers@destroy');
  

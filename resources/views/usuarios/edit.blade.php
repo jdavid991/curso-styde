@@ -35,6 +35,7 @@
         <label for="password">Clave</label>
         <input  type="password" name="password" id="password" class="form-control" placeholder="clave">
     </div> 
+    
         <button type="submit" class="btn btn-primary">Actualizar usuario</button>
         <a href="{{ route('usuarios.index') }}"class="btn btn-link">Regresar al listado de usuarios</a>
 

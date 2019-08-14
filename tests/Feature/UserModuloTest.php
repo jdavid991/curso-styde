@@ -28,12 +28,20 @@ class UserModuloTest extends TestCase
         $this->post('/usuario/', [
             'name' =>'Jorge Sarmiento',
             'email' =>'jdavids@991gmail.com',
-            'password' => '123456'
+            'password' => '123456',
+            'bio' => 'Ingeniero en Informatica',
+            'instagram' => '@jdavid991',
         ]);
         $this->assertDatabaseHas('users',[  
             'name' =>'Jorge Sarmiento',
             'email' =>'jdavids@991gmail.com',
             'password' => '123456'
+        ]);
+
+        $this->assertDatabaseHas('user_profiles',[
+            'bio' => 'Ingeniero en Informatica',
+            'Instagram' => '@jdavid991',
+            //'user_id' => User::findByEmail('jdavids991@gmail.com')->id,
         ]);
      }
      function update_user(){

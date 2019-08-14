@@ -31,8 +31,17 @@
                     <input type="email" name="email" id="email" class="form-control" placeholder="Correo" value="{{old('email')}}">
                 </div> 
                 <div class="form-group">   
-                    <label for="password">Clave</label>
-                    <input  type="password" name="password" id="password" class="form-control" placeholder="clave">
+                        <label for="password">Clave</label>
+                        <input  type="password" name="password" id="password" class="form-control" placeholder="clave">
+                </div>
+                <div class="form-group">   
+                        <label for="bio">Bio</label>
+                        <textarea  name="bio" id="bio" class="form-control" placeholder="Bio">{{old('bio')}}</textarea>
+                </div> 
+                <div class="form-group">   
+                        <label for="instagram">Instagram</label>
+                        <input type="text" name="instagram" id="instagram" class="form-control" placeholder="instagram" value="{{old('instagram')}}">
+
                 </div> 
                 <div class="form-group"> 
                     <button type="submit" class="btn btn-primary">Crear usuario</button>
